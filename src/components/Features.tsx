@@ -45,7 +45,7 @@ const Features = () => {
     },
     {
       icon: Lock,
-      title: "Bank-Grade Security",
+      title: "Advanced Security",
       description: "PCI DSS Level 1 certified infrastructure with end-to-end encryption and tokenization for maximum security."
     },
     {
