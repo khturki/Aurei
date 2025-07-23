@@ -8,11 +8,28 @@ import {
   Users,
   Lock,
   TrendingUp,
-  Settings
+  Settings,
+  Monitor,
+  Sliders
 } from 'lucide-react';
 
 const Features = () => {
   const features = [
+    {
+      icon: Monitor,
+      title: "Merchant Admin Dashboard",
+      description: "Complete control over your payment operations with real-time monitoring, payment flow management, and customizable settings."
+    },
+    {
+      icon: Sliders,
+      title: "Payment Flow Control",
+      description: "Enable or disable payment methods, configure routing rules, and manage checkout experiences from your admin panel."
+    },
+    {
+      icon: BarChart3,
+      title: "Analytics Management",
+      description: "Turn analytics reports on/off, customize reporting periods, and control data visibility for different team members."
+    },
     {
       icon: CreditCard,
       title: "Unified Payment Gateway",
@@ -22,11 +39,6 @@ const Features = () => {
       icon: Shield,
       title: "Advanced Fraud Protection",
       description: "AI-powered fraud detection with machine learning algorithms specifically trained on MENA payment patterns and behaviors."
-    },
-    {
-      icon: BarChart3,
-      title: "Real-time Analytics",
-      description: "Comprehensive dashboard with transaction analytics, success rates, and regional payment insights to optimize your conversion."
     },
     {
       icon: Globe,
@@ -65,11 +77,11 @@ const Features = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
-            Everything You Need for <span className="text-primary">MENA Payments</span>
+            Complete Control with <span className="text-primary">Admin Dashboard</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive payment orchestration platform designed specifically for businesses 
-            looking to expand into Middle East and North Africa markets.
+            More than payment orchestration - get full merchant control with admin dashboard, 
+            payment flow management, analytics controls, and customizable checkout experiences.
           </p>
         </div>
 

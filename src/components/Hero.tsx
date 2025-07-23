@@ -18,8 +18,8 @@ const Hero = () => {
           
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Aurei provides seamless payment orchestration and aggregation solutions, 
-            giving your business access to the entire MENA region payment ecosystem through a single, powerful integration.
+            Aurei provides complete payment orchestration with powerful merchant admin controls. 
+            Manage your payment flows, customize checkout experiences, and control analytics - all through a single, unified platform.
           </p>
 
           {/* Key benefits */}

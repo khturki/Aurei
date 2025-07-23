@@ -42,10 +42,13 @@ const Solutions = () => {
   ];
 
   const benefits = [
-    "Single API integration for all payment methods",
+    "Merchant admin dashboard with full control",
+    "Enable/disable payment methods & analytics",
+    "Customize checkout experience & branding",
     "Smart routing for optimal success rates",
-    "Local currency settlement",
-    "Regulatory compliance included",
+    "Real-time payment flow management",
+    "Single API integration for all payment methods",
+    "Local currency settlement & compliance",
     "24/7 technical support in Arabic & English"
   ];
 
@@ -54,11 +57,11 @@ const Solutions = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
-            Complete <span className="text-primary">Payment Solutions</span>
+            Complete <span className="text-primary">Payment Platform</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Access the entire MENA payment ecosystem through one unified platform. 
-            From traditional cards to modern mobile wallets - we've got you covered.
+            Beyond payment orchestration - get full merchant control with admin dashboard, 
+            payment flow management, analytics controls, and customizable checkout experiences.
           </p>
         </div>
 
@@ -111,7 +114,7 @@ const Solutions = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl font-serif font-bold text-foreground mb-6">
-                Why Choose Aurei for MENA Payments?
+                Why Choose Aurei's Complete Platform?
               </h3>
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
