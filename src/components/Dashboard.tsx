@@ -10,24 +10,28 @@ import {
   ArrowRight
 } from 'lucide-react';
 
+import paymentDashboard from '@/assets/payment-dashboard.jpg';
+import analyticsControl from '@/assets/analytics-control.jpg';
+import paymentFlowControl from '@/assets/payment-flow-control.jpg';
+
 const Dashboard = () => {
   const dashboardFeatures = [
     {
       title: "Real-time Payment Dashboard",
       description: "Monitor all transactions, success rates, and payment flows in real-time with comprehensive analytics.",
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      image: paymentDashboard,
       features: ["Live transaction monitoring", "Payment success rates", "Revenue analytics", "Regional breakdowns"]
     },
     {
       title: "Analytics Reports Control",
       description: "Enable or disable analytics reports, customize reporting periods, and control data visibility for your team.",
-      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      image: analyticsControl,
       features: ["Report scheduling", "Data export controls", "Team permissions", "Custom metrics"]
     },
     {
       title: "Payment Flow Management",
       description: "Complete control over payment methods, routing rules, and checkout experience customization.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      image: paymentFlowControl,
       features: ["Method enable/disable", "Smart routing setup", "Checkout customization", "Fee management"]
     }
   ];
