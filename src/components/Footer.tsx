@@ -39,7 +39,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">
-              <img src={aureiLogo} alt="Aurei" className="h-8 w-8" />
+              <img src={aureiLogo} alt="Aurei" className="h-10 w-10" />
               <span className="text-2xl font-serif font-bold text-primary">Aurei</span>
             </div>
             <p className="text-white/80 leading-relaxed">
