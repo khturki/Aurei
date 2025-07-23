@@ -49,15 +49,6 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Trust indicators */}
-          <div className="mt-12 pt-8 border-t border-white/20">
-            <p className="text-white/70 text-sm mb-4">Trusted by leading e-commerce platforms</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-              <div className="px-6 py-2 bg-white/10 rounded-lg text-sm font-medium">PCI DSS Certified</div>
-              <div className="px-6 py-2 bg-white/10 rounded-lg text-sm font-medium">ISO 27001</div>
-              <div className="px-6 py-2 bg-white/10 rounded-lg text-sm font-medium">SOC 2 Type II</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
