@@ -1,73 +1,98 @@
-# Welcome to your Lovable project
+# Aurei - Payment Orchestration Platform
 
-## Project info
+Modern payment aggregation solutions for e-commerce businesses accessing MENA region payments.
 
-**URL**: https://lovable.dev/projects/a962e498-ea7d-4e5d-acc6-f5cf155f2638
+## 🚀 Live Demo
 
-## How can I edit this code?
+Visit the live website: [Your GitHub Pages URL]
 
-There are several ways of editing your application.
+## 📋 Features
 
-**Use Lovable**
+- **Payment Orchestration**: Seamless payment processing across multiple providers
+- **MENA Region Focus**: Specialized payment solutions for Middle East and North Africa
+- **Real-time Analytics**: Comprehensive dashboard with payment insights
+- **Responsive Design**: Optimized for all devices and screen sizes
+- **Modern UI**: Built with React, TypeScript, and Tailwind CSS
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a962e498-ea7d-4e5d-acc6-f5cf155f2638) and start prompting.
+## 🛠️ Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend**: React 18, TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: Radix UI
+- **Routing**: React Router
+- **State Management**: TanStack Query
+- **Deployment**: GitHub Pages
 
-**Use your preferred IDE**
+## 🚀 Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js 18 or higher
+- npm or yarn
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/your-repo-name.git
+cd your-repo-name
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. Install dependencies:
+```bash
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open your browser and visit `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📦 Build and Deploy
 
-**Use GitHub Codespaces**
+### Local Build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run build
+```
 
-## What technologies are used for this project?
+### Deploy to GitHub Pages
 
-This project is built with:
+This project is configured for automatic deployment to GitHub Pages:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Push your changes to the `main` branch
+2. GitHub Actions will automatically build and deploy your site
+3. Your site will be available at `https://yourusername.github.io/your-repo-name`
 
-## How can I deploy this project?
+### Manual Deployment Setup
 
-Simply open [Lovable](https://lovable.dev/projects/a962e498-ea7d-4e5d-acc6-f5cf155f2638) and click on Share -> Publish.
+If you need to set up GitHub Pages manually:
 
-## Can I connect a custom domain to my Lovable project?
+1. Go to your repository settings
+2. Navigate to "Pages" section
+3. Set source to "Deploy from a branch"
+4. Select "gh-pages" branch
+5. Save the settings
 
-Yes, you can!
+## 🌐 WordPress Theme
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This project also includes WordPress theme files in the `wordpress-templates/` directory for easy WordPress integration.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📞 Contact
+
+For questions or support, please contact [your-email@example.com]
