@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Globe, Zap } from 'lucide-react';
-import heroBackground from '@/assets/hero-background.jpg';
+import heroBackground from '@/assets/hero-background-simple.jpg';
 
 const Hero = () => {
   return (
