@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurei - MENA Payment Solutions</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Colors inspired by golden Aurei logo */
+            --primary: #D4AF37;
+            --primary-dark: #B8941F;
+            --background: #0A0A0B;
+            --background-light: #1A1A1B;
+            --foreground: #FFFFFF;
+            --muted: #6B7280;
+            --border: #374151;
+            --card-bg: #111827;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 11, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 16px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--foreground);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .header-cta {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--background);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--foreground);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 24px 60px;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+        
+        .hero-highlight {
+            color: var(--primary);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border-radius: 9999px;
+            padding: 8px 16px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .hero-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--primary);
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-light {
+            background: var(--background-light);
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--muted);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 64px;
+        }
+        
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 32px;
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .card-description {
+            color: var(--muted);
+            line-height: 1.6;
+        }
+        
+        /* Feature Lists */
+        .feature-list {
+            list-style: none;
+            margin: 24px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .feature-check {
+            width: 20px;
+            height: 20px;
+            color: var(--primary);
+        }
+        
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+        
+        .stat-card {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--foreground);
+            font-family: inherit;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            padding: 64px 0 32px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-content {
+                padding: 100px 16px 40px;
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="src/assets/aurei-logo.webp" alt="Aurei Logo">
+                    <span>Aurei</span>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-cta">
+                    <a href="#contact" class="btn btn-outline">Contact Sales</a>
+                    <a href="#demo" class="btn btn-primary">Request Demo</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Unlock <span class="hero-highlight">MENA Payments</span> for Your E-commerce
+            </h1>
+            
+            <p class="hero-subtitle">
+                Aurei provides complete payment orchestration with powerful merchant admin controls. 
+                Manage your payment flows, customize checkout experiences, and control analytics - all through a single, unified platform.
+            </p>
+
+            <div class="hero-badges">
+                <div class="hero-badge">
+                    <svg class="hero-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <span>Advanced Security</span>
+                </div>
+                <div class="hero-badge">
+                    <svg class="hero-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>15+ MENA Countries</span>
+                </div>
+                <div class="hero-badge">
+                    <svg class="hero-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <span>99.9% Uptime</span>
+                </div>
+            </div>
+
+            <div>
+                <a href="#contact" class="btn btn-outline" style="padding: 16px 32px; font-size: 1.125rem;">Request Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="section section-light">
+        <div class="container">
+            <h2 class="section-title">
+                Complete <span style="color: var(--primary);">Payment Platform</span>
+            </h2>
+            <p class="section-subtitle">
+                Beyond payment orchestration - get full merchant control with admin dashboard, 
+                payment flow management, analytics controls, and customizable checkout experiences.
+            </p>
+
+            <div class="grid grid-4">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Mobile Wallets</h3>
+                    <p class="card-description">Connect to popular MENA mobile payment platforms</p>
+                    <div style="margin-top: 16px;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                            <span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 9999px;">STC Pay</span>
+                            <span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 9999px;">Careem Pay</span>
+                            <span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 9999px;">Vodafone Cash</span>
+                        </div>
+                        <p style="font-size: 0.75rem; color: var(--muted); margin-top: 12px;"><strong>Coverage:</strong> KSA, UAE, Egypt, Jordan</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Card Payments</h3>
+                    <p class="card-description">Accept all major card networks with local optimization</p>
+                    <div style="margin-top: 16px;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                            <span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 9999px;">Visa</span>
+                            <span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 9999px;">Mastercard</span>
+                            <span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 9999px;">AMEX</span>
+                        </div>
+                        <p style="font-size: 0.75rem; color: var(--muted); margin-top: 12px;"><strong>Coverage:</strong> All MENA Countries</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Bank Transfers</h3>
+                    <p class="card-description">Direct bank integrations for seamless transfers</p>
+                    <div style="margin-top: 16px;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                            <span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 9999px;">SAMA Instant</span>
+                            <span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 9999px;">EFTS</span>
+                            <span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 9999px;">Local Banks</span>
+                        </div>
+                        <p style="font-size: 0.75rem; color: var(--muted); margin-top: 12px;"><strong>Coverage:</strong> KSA, UAE, Kuwait, Bahrain</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Digital Wallets</h3>
+                    <p class="card-description">Popular international and regional e-wallets</p>
+                    <div style="margin-top: 16px;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                            <span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 9999px;">PayPal</span>
+                            <span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 9999px;">Apple Pay</span>
+                            <span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 9999px;">Google Pay</span>
+                        </div>
+                        <p style="font-size: 0.75rem; color: var(--muted); margin-top: 12px;"><strong>Coverage:</strong> Global Coverage</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">48</div>
+                    <div class="stat-label">Hours</div>
+                    <p style="color: var(--muted); font-size: 0.875rem; margin-top: 4px;">Average implementation time</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">97.8%</div>
+                    <div class="stat-label">Success Rate</div>
+                    <p style="color: var(--muted); font-size: 0.875rem; margin-top: 4px;">Average payment success rate</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Countries</div>
+                    <p style="color: var(--muted); font-size: 0.875rem; margin-top: 4px;">MENA countries supported</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                Complete Control with <span style="color: var(--primary);">Admin Dashboard</span>
+            </h2>
+            <p class="section-subtitle">
+                More than payment orchestration - get full merchant control with admin dashboard, 
+                payment flow management, analytics controls, and customizable checkout experiences.
+            </p>
+
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Merchant Admin Dashboard</h3>
+                    <p class="card-description">Complete control over your payment operations with real-time monitoring, payment flow management, and customizable settings.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Payment Flow Control</h3>
+                    <p class="card-description">Enable or disable payment methods, configure routing rules, and manage checkout experiences from your admin panel.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Analytics Management</h3>
+                    <p class="card-description">Turn analytics reports on/off, customize reporting periods, and control data visibility for different team members.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Unified Payment Gateway</h3>
+                    <p class="card-description">Single API integration to access 50+ payment methods across MENA region, including local banks, digital wallets, and mobile payments.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Advanced Fraud Protection</h3>
+                    <p class="card-description">AI-powered fraud detection with machine learning algorithms specifically trained on MENA payment patterns and behaviors.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Multi-Currency Support</h3>
+                    <p class="card-description">Seamless currency conversion and settlement in 15+ MENA currencies with competitive exchange rates and transparent fees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-light">
+        <div class="container">
+            <h2 class="section-title">
+                Ready to Get <span style="color: var(--primary);">Started?</span>
+            </h2>
+            <p class="section-subtitle">
+                Contact our team to learn how Aurei can transform your MENA payment operations
+            </p>
+
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="Your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Business Email</label>
+                        <input type="email" class="form-input" placeholder="your@company.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Company Name</label>
+                        <input type="text" class="form-input" placeholder="Your company name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Monthly Transaction Volume</label>
+                        <select class="form-input">
+                            <option>Select volume range</option>
+                            <option>Less than $10,000</option>
+                            <option>$10,000 - $100,000</option>
+                            <option>$100,000 - $1,000,000</option>
+                            <option>More than $1,000,000</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-input form-textarea" placeholder="Tell us about your payment needs..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px;">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Aurei</h3>
+                    <p style="color: var(--muted); margin-bottom: 24px;">
+                        Empowering e-commerce across the MENA region with comprehensive payment solutions and merchant controls.
+                    </p>
+                    <div style="display: flex; gap: 16px;">
+                        <a href="#" style="color: var(--muted);">LinkedIn</a>
+                        <a href="#" style="color: var(--muted);">Twitter</a>
+                        <a href="#" style="color: var(--muted);">GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Payment Gateway</a></li>
+                        <li><a href="#">Mobile Wallets</a></li>
+                        <li><a href="#">Bank Transfers</a></li>
+                        <li><a href="#">Digital Wallets</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Platform</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Admin Dashboard</a></li>
+                        <li><a href="#">Analytics</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                        <li><a href="#">Integration Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Aurei. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
